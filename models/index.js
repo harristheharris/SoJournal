@@ -5,3 +5,8 @@ User.hasMany(Trip, {
     foreignKey: 'user_id',
     onDelete: 'CASCADE',
 });
+
+Trip.hasMany(Event, {
+    foreignKey: 'trip_id',
+    onDelete: 'CASCADE',
+});
