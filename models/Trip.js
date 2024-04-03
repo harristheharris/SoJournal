@@ -18,16 +18,16 @@ Trip.init(
         date_start: {
             type: DataTypes.STRING,
             allowNull: false,
-            validate: {
-                //TODO: Figure this out
-            }
+            //TODO: Figure this out
+            // validate: {    
+            // }
         },
         date_end: {
             type: DataTypes.STRING,
             allowNull: false,
-            validate: {
-                //TODO: Figure this out
-            }
+            //TODO: Figure this out
+            // validate: {    
+            // }
         },
         user_id: {
             type: DataTypes.INTEGER,

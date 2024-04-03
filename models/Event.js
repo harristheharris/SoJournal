@@ -18,6 +18,9 @@ Event.init(
         date: {
             type: DataTypes.STRING,
             allowNull: false,
+            //TODO: Figure this out
+            // validate: {    
+            // }
         },
         trip_id: {
             type: DataTypes.INTEGER,
