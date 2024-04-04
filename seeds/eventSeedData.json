@@ -1,0 +1,32 @@
+[
+    {
+        "event_name": "landed at airport",
+        "date": "aug10202210:00",
+        "trip_id": 1
+    },
+    {
+        "event_name": "landed at airport",
+        "date": "aug10202210:00",
+        "trip_id": 2
+    },
+    {
+        "event_name": "landed at airport",
+        "date": "aug10202210:00",
+        "trip_id": 3
+    },
+    {
+        "event_name": "landed at airport",
+        "date": "aug10202210:00",
+        "trip_id": 4
+    },
+    {
+        "event_name": "landed at airport",
+        "date": "aug10202210:00",
+        "trip_id": 5
+    },
+    {
+        "event_name": "landed at airport",
+        "date": "aug10202210:00",
+        "trip_id": 6
+    }
+]

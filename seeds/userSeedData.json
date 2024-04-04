@@ -1,0 +1,17 @@
+[
+    {
+        "user_name": "Stephen",
+        "password": "password1",
+        "public": true
+    },
+    {
+        "user_name": "Anthony",
+        "password": "HelloWorld",
+        "public": true
+    },
+    {
+        "user_name": "Aaron",
+        "password": "OpenSesame",
+        "public": false
+    }
+]

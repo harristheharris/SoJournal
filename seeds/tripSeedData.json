@@ -1,0 +1,38 @@
+[
+    {
+        "trip_name": "Vacation in Peru",
+        "date_start": "aug102022",
+        "date_end": "aug142022",
+        "user_id": 1
+    },
+    {
+        "trip_name": "Bussiness in London",
+        "date_start": "jan162023",
+        "date_end": "jan242023",
+        "user_id": 1
+    },
+    {
+        "trip_name": "Stayed with family in Montanna",
+        "date_start": "jun152021",
+        "date_end": "jul102021",
+        "user_id": 2
+    },
+    {
+        "trip_name": "Visited friend in Japan",
+        "date_start": "dec302022",
+        "date_end": "jan062023",
+        "user_id": 2
+    },
+    {
+        "trip_name": "Hosted Holiday Events",
+        "date_start": "dec212022",
+        "date_end": "jan012023",
+        "user_id": 3
+    },
+    {
+        "trip_name": "Took a walk down the block",
+        "date_start": "feb102024",
+        "date_end": "feb102024",
+        "user_id": 3
+    }
+]
