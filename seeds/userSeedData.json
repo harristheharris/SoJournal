@@ -1,18 +1,15 @@
 [
     {
-        "id": 0,
         "user_name": "Stephen",
         "password": "password1",
         "public": true
     },
     {
-        "id": 1,
         "user_name": "Anthony",
         "password": "HelloWorld",
         "public": true
     },
     {
-        "id": 2,
         "user_name": "Aaron",
         "password": "OpenSesame",
         "public": false

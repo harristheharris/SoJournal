@@ -26,6 +26,13 @@ User.init(
             type: DataTypes.BOOLEAN,
             defaultValue: true
         }
+    },
+    {
+        sequelize,
+        timestamps: false,
+        freezeTableName: true,
+        underscored: true,
+        modelName: 'user',
     }
 )
 
