@@ -1,21 +1,22 @@
 const router = require('express').Router();
 const { Event, Trip, User } = require('../models');
+const withAuth = require('../utils/auth')
 
 router.get('/', async (req, res) => {
     try {
-        const eventData = await Event.findAll({
+        const tripData = await Trip.findAll({
             include: [
                 {
                     model: User,
-                    attributes: ['name'],
+                    attributes: ['user_name'],
                 },
             ],
         });
 
-        const events = eventData.map((event) => event.get({ plain: true }));
+        const trips = tripData.map((trip) => trip.get({ plain: true }));
 
         res.render('homepage', {
-            events,
+            trips,
             logged_in: req.session.logged_in
         });
 
@@ -25,20 +26,20 @@ router.get('/', async (req, res) => {
 })
 
 
-router.get('/event/:id', async (req, res) => {
+router.get('/trip/:id', async (req, res) => {
     try {
-        const eventData = await Event.findByPk(req.params.id, {
+        const tripData = await Trip.findByPk(req.params.id, {
             include: [{
                 model: User,
-                atrributes: ['name'],
-            },
+                atrributes: ['user_name'],
+            }
             ],
         });
 
-        const event = eventData.get({ plain: true});
+        const trip = tripData.get({ plain: true });
 
-        res.render('project' , {
-            ...event,
+        res.render('trip', {
+            ...trip,
             logged_in: req.session.logged_in
         });
 
@@ -49,7 +50,34 @@ router.get('/event/:id', async (req, res) => {
 })
 
 //profile route???
+router.get('/profile', withAuth, async (req, res) => {
+    try {
+        const userData = await User.findByPk(req.session.user_id, {
+            attributes: {exclude: ['password']},
+            include: [{ model: Trip}]
+        });
+
+        const user = userDate.get({ plain: true });
+
+        res.render('profile', {
+            ...user,
+            logged_in: true
+        });
+    } catch (err) {
+        res.status(500).json(err);
+    }
+
+})
+
+
 //login route???
+router.get('/login', (req, res) => {
 
+    if (req.session.logged_in) {
+        res.redirect('/profile');
+        return;
+    }
+    res.render('login')
+})
 
-
+module.exports = router; 
