@@ -6,6 +6,6 @@ const tripRoutes = require('./tripRoutes');
 
 router.use('/users', userRoutes);
 router.use('/trips', tripRoutes);
-router.use('trips/event', eventRoutes);
+router.use('/event', eventRoutes);
 
 module.exports = router;
