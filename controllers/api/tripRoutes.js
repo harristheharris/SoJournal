@@ -6,7 +6,7 @@ router.post('/', withAuth, async (req, res ) => {
     try{
         const newTrip = await Trip.create({
             ...req.body,
-            user_id:
+            user_id: 
         })
     } catch {
 
