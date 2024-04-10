@@ -76,7 +76,7 @@ router.get('/trip/:id', async (req, res) => {
         const tripData = await Trip.findByPk(req.params.id, {
             include: [{
                 model: User, Event,
-                atrributes: ['user_name'],
+                atrributes: ['name'],
             }
             ],
         });
@@ -95,10 +95,5 @@ router.get('/trip/:id', async (req, res) => {
 
     }
 })
-
-
-
-
-
 
 module.exports = router; 
