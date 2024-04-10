@@ -1,13 +1,13 @@
 <div class="main-content">
   <main>
     <section class="trip-page">
-      <h2>{{trip_name}} ({{date_start}} - {{date_end}})</h2>
+      <h2>{{name}} ({{date_start}} - {{date_end}})</h2>
     
       <div class="trip-events-and-image">
         <div class="trip-events">
           {{#each events as |event|}}
             <div class="event-card">
-              <h3>{{event.event_name}} - {{event.date}}</h3>
+              <h3>{{event.name}} - {{event.date}}</h3>
               {{!-- <p>{{event.description}}</p> --}}
             </div>
           {{else}}

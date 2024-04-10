@@ -1,40 +1,63 @@
-const newTripFormHandler = async (event) => {
-    event.preventDefault();
+$(function () {
+    $("#trip-start-date").datepicker();
+    $("#trip-end-date").datepicker();
 
-    const name = document.querySelector('#trip-name').value.trim();
-    const startDate = document.querySelector('#trip-startDate').value.trim();
-    const endDate = document.querySelector('#trip-endDate').value.trim();
+    $('.trip-form').on('submit', async (e) => {
+        e.preventDefault();
 
-    if (name && startDate && endDate) {
-        const response = await fetch('api/trips', {
+        const data = {
+            name: $('#trip-name').val(),
+            date_start: $('#trip-start-date').val(),
+            date_end: $('#trip-end-date').val(),
+        }
+
+        const response = await fetch('/api/trips', {
             method: 'POST',
-            body: JSON.stringify({ name, startDate, endDate }),
+            body: JSON.stringify(data),
             headers: { 'Content-Type': 'application/json' },
         });
 
         if (response.ok) {
-            document.location.replace('/profile');
+            const body = await response.json();
+
+            document.location.replace(`/trip/${body.id}`);
         } else {
-            alert('Failed to add Trip');
+            alert(response.statusText);
         }
-    }
-}
+    })
+    $('.trip-list').on('click', async (e) => {
+        if (e.target.hasAttribute('data-id')) {
+            const id = e.target.getAttribute('data-id');
 
-const delTripButtonHandler = async (event) => {
-    if (event.target.hasAttribute('data-id')) {
-        const id = event.target.getAttribute('data-id');
+            const response = await fetch(`api/trips/${id}`, {
+                method: 'DELETE',
+            });
 
-        const response = await fetch(`api/trips/${id}`, {
-            method: 'DELETE',
-        });
-
-        if (response.ok) {
-            document.location.replace('/profile');
-        } else {
-            alert('Failed to delete Trip');
+            if (response.ok) {
+                document.location.replace('/profile');
+            } else {
+                alert('Failed to delete Trip');
+            }
         }
-    }
-}
+    })
 
-document.querySelector('.new-trip-form').addEventListener('submit', newTripFormHandler);
-document.querySelector('.trip-list').addEventListener('click', delTripButtonHandler);
+});
+
+
+// const delTripButtonHandler = async (event) => {
+//     if (event.target.hasAttribute('data-id')) {
+//         const id = event.target.getAttribute('data-id');
+
+//         const response = await fetch(`api/trips/${id}`, {
+//             method: 'DELETE',
+//         });
+
+//         if (response.ok) {
+//             document.location.replace('/profile');
+//         } else {
+//             alert('Failed to delete Trip');
+//         }
+//     }
+// }
+
+// document.querySelector('.trip-list').addEventListener('click', delTripButtonHandler);
