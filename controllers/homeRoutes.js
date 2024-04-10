@@ -38,14 +38,11 @@ router.get('/login', (req, res) => {
 //profile route???
 router.get('/', withAuth, async (req, res) => {
     try {
+        const sesId = session.user_id;
         const userData = await User.findByPk(req.session.user_id, {
             attributes: {exclude: ['password']},
             include: [{ model: Trip }]
         });
-
-
-
-        const tripData = await Trip.filter 
 
         const user = userData.get({ plain: true });
 
@@ -53,7 +50,7 @@ router.get('/', withAuth, async (req, res) => {
 
         res.render('homepage', {
             user,
-            logged_in: true
+           
         });
     } catch (err) {
         res.status(500).json(err);
