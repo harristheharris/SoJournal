@@ -1,0 +1,46 @@
+<div>
+    <div>
+        <h2>Welcome, {{name}}</h2>
+    </div>
+</div>
+
+<div>
+    <div>
+        <h3>Create a new Trip</h3>
+        <form class="form new-trip-form">
+            <div>
+                <label for="trip-name">trip name:</label>
+                <input type="text" id="trip-name" name="trip-name" />
+            </div>
+            <div>
+                <label for="trip-startDate">trip start date:</label>
+                <input type="date" id="trip-startDate" name="trip-startDate" />
+            </div>
+            <div>
+                <label for="trip-endDate">trip end date:</label>
+                <input type="date" id="trip-endDate" name="trip-endDate" />
+            </div>
+            <div>
+                <button type="submit">Create</button>
+            </div>
+        </form>
+    </div>
+    {{#if trips.length}}
+    <div class="trip-list">
+        <h3>Saved Trips:</h3>
+
+        {{#each trips as |trip|}}
+        <div>
+            <div>
+                <h4><a href="/trip/{{trip.id}}">{{trip.name}}</a></h4>
+            </div>
+            <div>
+                <button data-id="{{trip.id}}">DELETE</button>
+            </div>
+        </div>
+        {{/each}}
+    </div>
+    {{/if}}
+</div>
+
+<script src="./js/profile.js"></script>

@@ -7,6 +7,10 @@ User.hasMany(Trip, {
     onDelete: 'CASCADE',
 });
 
+Trip.belongsTo(User, {
+    foreignKey: 'user_id'
+})
+
 Trip.hasMany(Event, {
     foreignKey: 'trip_id',
     onDelete: 'CASCADE',

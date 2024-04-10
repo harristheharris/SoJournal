@@ -11,7 +11,7 @@ Trip.init(
             primaryKey: true,
             autoIncrement: true,
         },
-        trip_name: {
+        name: {
             type: DataTypes.STRING,
             allowNull: false,
         },

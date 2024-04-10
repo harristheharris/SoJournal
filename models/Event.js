@@ -11,7 +11,7 @@ Event.init(
             primaryKey: true,
             autoIncrement: true,
         },
-        event_name: {
+        name: {
             type: DataTypes.STRING,
             allowNull: false,
         },
@@ -21,6 +21,9 @@ Event.init(
             //TODO: Figure this out
             // validate: {    
             // }
+        },
+        description: {
+            type: DataTypes.STRING,
         },
         trip_id: {
             type: DataTypes.INTEGER,
