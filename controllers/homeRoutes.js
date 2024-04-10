@@ -38,23 +38,32 @@ router.get('/login', (req, res) => {
 //profile route???
 router.get('/', withAuth, async (req, res) => {
     try {
+        const sesId = req.session.user_id;
         const userData = await User.findByPk(req.session.user_id, {
             attributes: {exclude: ['password']},
-            include: [{ model: Trip }]
+            include: [{ model: Trip, Event }]
         });
 
+       const userTrips = Trip.findAll({
+            where: {
+                user_id: sesId
+            }
+
+        })
 
 
-        const tripData = await Trip.filter 
-
+        const trip = userTrips.get({ plain: true })
         const user = userData.get({ plain: true });
 
 
 
         res.render('homepage', {
+            trip,
             user,
-            logged_in: true
+           
         });
+        console.log(trip);
+        console.log(user);
     } catch (err) {
         res.status(500).json(err);
     }
@@ -66,7 +75,7 @@ router.get('/trip/:id', async (req, res) => {
     try {
         const tripData = await Trip.findByPk(req.params.id, {
             include: [{
-                model: User,
+                model: User, Event,
                 atrributes: ['user_name'],
             }
             ],
@@ -78,6 +87,8 @@ router.get('/trip/:id', async (req, res) => {
             ...trip,
             logged_in: req.session.logged_in
         });
+
+        console.log(trip);
 
     } catch (err) {
         res.status(500).json(err);
