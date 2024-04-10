@@ -43,9 +43,13 @@ router.get('/', withAuth, async (req, res) => {
             include: [{ model: Trip }]
         });
 
+
+
+        const tripData = await Trip.filter 
+
         const user = userData.get({ plain: true });
 
-        
+
 
         res.render('homepage', {
             user,
