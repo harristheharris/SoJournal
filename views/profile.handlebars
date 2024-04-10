@@ -20,16 +20,13 @@
                 <label for="trip-endDate">trip end date:</label>
                 <input type="date" id="trip-endDate" name="trip-endDate" />
             </div>
-            <div>
-                <button type="submit">Create</button>
-            </div>
         </form>
     </div>
     {{#if trips.length}}
-    <div class="trip-list">
+    <div>
         <h3>Saved Trips:</h3>
 
-        {{#each trips as |trip|}}
+        {{#each}}
         <div>
             <div>
                 <h4><a href="/trip/{{trip.id}}">{{trip.name}}</a></h4>

@@ -2,13 +2,13 @@ const newTripFormHandler = async (event) => {
     event.preventDefault();
 
     const name = document.querySelector('#trip-name').value.trim();
-    const date_start = document.querySelector('#trip-startDate').value.trim();
-    const date_end = document.querySelector('#trip-endDate').value.trim();
+    const startDate = document.querySelector('#trip-startDate').value.trim();
+    const endDate = document.querySelector('#trip-endDate').value.trim();
 
-    if (name && date_start && date_end) {
+    if (name && startDate && endDate) {
         const response = await fetch('api/trips', {
             method: 'POST',
-            body: JSON.stringify({ name, date_start, date_end }),
+            body: JSON.stringify({ name, startDate, endDate }),
             headers: { 'Content-Type': 'application/json' },
         });
 

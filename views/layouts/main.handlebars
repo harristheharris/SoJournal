@@ -1,35 +1,36 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <meta charset="utf-8">
+    <title>Trips</title>
+
+    <link rel="stylesheet" href="/style.css">
+
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
+
+    <script
+      src="https://code.jquery.com/jquery-3.7.1.min.js"
+      integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo="
+      crossorigin="anonymous"></script>
+
+    <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.min.js" integrity="sha256-lSjKY0/srUM9BE3dPm+c4fBo1dky2v27Gdjm2uoZaL0=" crossorigin="anonymous"></script>
 </head>
-
 <body>
-    <div>
-        <header>
-            <h1>SoJournal</h1>
-            <nav>
-                {{#if logged_in}}
-                <a href="/profile">profile</a>
-                <button id="logout">logout</button>
-                {{else}}
-                <a href="/login">login</a>
-                {{/if}}
-            </nav>
-        </header>
-        <main>
-            {{{body}}}
-        </main>
-        <footer>
-
-        </footer>
+      <header>
+        <h1>SoJournal</h1>
+        <nav class="main-nav">
+            {{#if logged_in}}
+            <a href="/profile">profile</a>
+            <button id="logout">logout</button>
+            {{else}}
+            <a href="/login">login</a>
+            {{/if}}
+        </nav>
+    </header>
+    <div class="main-content">
+      {{{body}}}
     </div>
-    {{#if logged_in}}
-    <script src="/js/logout.js"></script>
-    {{/if}}
-</body>
 
+    <script src="/js/logout.js"></script>
+</body>
 </html>

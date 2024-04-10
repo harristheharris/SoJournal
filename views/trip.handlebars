@@ -1,5 +1,22 @@
-<div>
-    <h2>{{name}}</h2>
-    <p>{{start_date}}</p>
-    <p>{{end_date}}</p>
+<div class="main-content">
+  <main>
+    <section class="trip-page">
+      <h2>{{trip_name}} ({{date_start}} - {{date_end}})</h2>
+    
+      <div class="trip-events-and-image">
+        <div class="trip-events">
+          {{#each events as |event|}}
+            <div class="event-card">
+              <h3>{{event.event_name}} - {{event.date}}</h3>
+              {{!-- <p>{{event.description}}</p> --}}
+            </div>
+          {{else}}
+            <div>This trip has no events yet</div>
+          {{/each}}
+        </div>
+    
+        <img src="https://www.state.gov/wp-content/uploads/2020/11/shutterstock_186964970-scaled.jpg" width="600">
+      </div>
+    </section>
+  </main>
 </div>
