@@ -8,18 +8,18 @@
     {{#if trips.length}}
     <div class="trip-list">
         <h3>Saved Trips:</h3>
-
         {{#each trips as |trip|}}
         <div>
             <div>
                 <h4><a href="/trip/{{trip.id}}">{{trip.name}}</a></h4>
             </div>
             <div>
-                <button class="btn btn-danger delete-button" data-action="/api/trips/{{trip.id}}" data-method="DELETE" >DELETE</button>
+                <button class="btn btn-danger delete-button" data-action="/api/trips/{{trip.id}}"
+                    data-method="DELETE">DELETE</button>
             </div>
         </div>
         {{else}}
-          <div>No trips yet!</div>
+        <div>No trips yet!</div>
         {{/each}}
     </div>
     {{/if}}
@@ -29,7 +29,7 @@
         <form class="trip-form" action="/api/trips/" method="POST" enctype="multipart/form-data">
             <div class="input-group">
                 <label for="trip-name">trip name:</label>
-                <input type="text" id="trip-name" name="name" autocomplete="off"/>
+                <input type="text" id="trip-name" name="name" autocomplete="off" />
             </div>
             <div class="input-group">
                 <label for="trip-date-start">trip start date:</label>
