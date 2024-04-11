@@ -60,7 +60,8 @@ router.get('/trip/:id', async (req, res) => {
 
         res.render('trip', {
             ...trip,
-            logged_in: req.session.logged_in
+            logged_in: req.session.logged_in,
+						trip_belongs_to_user: trip.user_id === req.session.user_id
         });
 
     } catch (err) {
