@@ -17,21 +17,21 @@
           <div>This trip has no events yet</div>
           {{/each}}
           {{#if is_owner}}
-          <div>
+          <div class="form-container">
             <h3>Create a new Event</h3>
             <form class="event-form" action="/api/events/" method="POST" enctype="multipart/form-data"
               data-trip_id="{{id}}">
-              <div>
+              <div class="input-group">
                 <label for="event-name">event name:</label>
                 <input type="text" id="event-name" name="name" autocomplete="off" />
               </div>
               <div>
                 <label for="event-date">event date:</label>
-                <input type="date" id="event-date" name="date" autocomplete="off" />
+                <input type="date" id="event-date" name="event-date" autocomplete="off" />
               </div>
               <div>
                 <label for="event-description">Describe the event:</label>
-                <textarea id="event-description" name="description" style="resize: none;"></textarea>
+                <textarea id="event-description" name="event-description" style="resize: none;"></textarea>
               </div>
               <div>
                 <label for="event-img">event image:</label>
@@ -45,7 +45,7 @@
           {{/if}}
         </div>
 
-        <img src="https://www.state.gov/wp-content/uploads/2020/11/shutterstock_186964970-scaled.jpg" width="600">
+        <img src="https://www.state.gov/wp-content/uploads/2020/11/shutterstock_186964970-scaled.jpg" width="400">
       </div>
     </section>
   </main>

@@ -4,7 +4,7 @@
     </div>
 </div>
 
-<div>
+<div class="profile-content">
     {{#if trips.length}}
     <div class="trip-list">
         <h3>Saved Trips:</h3>
@@ -15,30 +15,32 @@
                 <h4><a href="/trip/{{trip.id}}">{{trip.name}}</a></h4>
             </div>
             <div>
-                <button class="delete-button" data-action="/api/trips/{{trip.id}}" data-method="DELETE" >DELETE</button>
+                <button class="btn btn-danger delete-button" data-action="/api/trips/{{trip.id}}" data-method="DELETE" >DELETE</button>
             </div>
         </div>
+        {{else}}
+          <div>No trips yet!</div>
         {{/each}}
     </div>
     {{/if}}
     {{#if is_user}}
-    <div>
+    <div class="form-container">
         <h3>Create a new Trip</h3>
         <form class="trip-form" action="/api/trips/" method="POST" enctype="multipart/form-data">
-            <div>
+            <div class="input-group">
                 <label for="trip-name">trip name:</label>
                 <input type="text" id="trip-name" name="name" autocomplete="off"/>
             </div>
-            <div>
+            <div class="input-group">
                 <label for="trip-date-start">trip start date:</label>
                 <input type="date" id="trip-date-start" name="date_start" autocomplete="off" />
             </div>
-            <div>
+            <div class="input-group">
                 <label for="trip-date-end">trip end date:</label>
                 <input type="date" id="trip-date-end" name="date_end" autocomplete="off" />
             </div>
-            <div>
-                <button type="submit">Create</button>
+            <div class="button-container">
+                <button type="submit" class="btn btn-primary">Create</button>
             </div>
         </form>
     </div>
