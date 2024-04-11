@@ -18,7 +18,8 @@ router.get('/', async (req, res) => {
 
         res.render('homepage', {
             trips,
-            logged_in: req.session.logged_in
+            logged_in: req.session.user_id,
+            user_id: req.session.user_id,
         });
 
     } catch (err) {
@@ -33,15 +34,15 @@ router.get('/profile', withAuth, async (req, res) => {
             include: [{ model: Trip }]
         });
         const user = userData.get({ plain: true });
-        
+
         res.render('profile', {
             ...user,
-            logged_in: true,
+            logged_in: req.session.user_id,
+            is_user: user.id === req.session.user_id,
         });
     } catch (err) {
         res.status(500).json(err);
     }
-
 })
 
 
@@ -60,7 +61,8 @@ router.get('/trip/:id', async (req, res) => {
 
         res.render('trip', {
             ...trip,
-            logged_in: req.session.logged_in
+            logged_in: req.session.user_id,
+            is_owner: trip.user_id === req.session.user_id,
         });
 
     } catch (err) {

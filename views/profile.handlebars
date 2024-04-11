@@ -21,6 +21,7 @@
         {{/each}}
     </div>
     {{/if}}
+    {{#if is_user}}
     <div>
         <h3>Create a new Trip</h3>
         <form class="trip-form" action="/api/trips/" method="POST" enctype="multipart/form-data">
@@ -41,7 +42,9 @@
             </div>
         </form>
     </div>
+    {{/if}}
 </div>
 
+<script src="/js/profile.js"></script>
 <script src="/js/handleDelete.js"></script>
 <script src="/js/handleSubmit.js"></script>

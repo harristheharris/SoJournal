@@ -1,0 +1,3 @@
+$(() => {
+    $("#trip-date").datepicker();
+})

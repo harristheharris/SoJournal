@@ -9,21 +9,25 @@
           <div class="event-card">
             <h3>{{event.name}} - {{event.date}}</h3>
             <p>{{event.description}}</p>
-            <button class="delete-button" data-action="/api/events/{{event.id}}" data-method="DELETE" >DELETE</button>
+            {{#if is_owner}}
+            <button class="delete-button" data-action="/api/events/{{event.id}}" data-method="DELETE">DELETE</button>
+            {{/if}}
           </div>
           {{else}}
           <div>This trip has no events yet</div>
           {{/each}}
+          {{#if is_owner}}
           <div>
             <h3>Create a new Event</h3>
-            <form class="event-form" action="/api/events/" method="POST" enctype="multipart/form-data" data-trip_id="{{id}}">
+            <form class="event-form" action="/api/events/" method="POST" enctype="multipart/form-data"
+              data-trip_id="{{id}}">
               <div>
                 <label for="event-name">event name:</label>
-                <input type="text" id="event-name" name="name" autocomplete="off"/>
+                <input type="text" id="event-name" name="name" autocomplete="off" />
               </div>
               <div>
                 <label for="event-date">event date:</label>
-                <input type="date" id="event-date" name="date" autocomplete="off"/>
+                <input type="date" id="event-date" name="date" autocomplete="off" />
               </div>
               <div>
                 <label for="event-description">Describe the event:</label>
@@ -31,13 +35,14 @@
               </div>
               <div>
                 <label for="event-img">event image:</label>
-                <input type="file" id="event-img" name="image" accept=".jpg, .jpeg, .png, .img"/>
+                <input type="file" id="event-img" name="image" accept=".jpg, .jpeg, .png, .img" />
               </div>
               <div>
                 <button type="submit">Create</button>
               </div>
             </form>
           </div>
+          {{/if}}
         </div>
 
         <img src="https://www.state.gov/wp-content/uploads/2020/11/shutterstock_186964970-scaled.jpg" width="600">
@@ -45,5 +50,7 @@
     </section>
   </main>
 </div>
+
+<script src="/js/trip.js"></script>
 <script src="/js/handleDelete.js"></script>
 <script src="/js/handleSubmit.js"></script>
