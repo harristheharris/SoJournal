@@ -8,7 +8,6 @@ body {
   height: 100vh;
   box-sizing: border-box;
   font-family: sans-serif;
-  padding: 16px;
 }
 
 header {
@@ -16,6 +15,9 @@ header {
   grid-template-columns: 1fr auto 1fr;
   gap: 20px;
   align-items: center;
+  background-color: black;
+  color: white;
+  padding: 0px 20px;
 }
 
 header h1 {
@@ -26,12 +28,24 @@ header h1 {
   display: flex;
   align-items: center;
   justify-content: flex-end;
+  gap: 20px;
+}
+
+.main-nav a {
+  text-decoration: none;
+  color: white;
+}
+
+.main-nav a:hover {
+  text-decoration: underline;
 }
 
 .main-content {
   display: flex;
   gap: 20px;
   width: 100%;
+  padding: 16px;
+
 }
 
 .side-nav {
@@ -152,4 +166,16 @@ main {
 
 .btn.btn-danger:hover {
   background-color: rgb(210, 48, 48);
+}
+
+.btn.btn-text {
+  padding: 0px;
+  border-radius: 0px;
+  color: white;
+  background-color: transparent;
+  font-size: 16px;
+}
+
+.btn.btn-text:hover {
+  text-decoration: underline;
 }
