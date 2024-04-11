@@ -1,6 +1,8 @@
 const express = require('express');
 const session = require('express-session');
 const exphbs = require('express-handlebars');
+const formidable = require('express-formidable');
+
 const routes = require('./controllers');
 const helpers = require('./utils/helpers');
 const path = require('path');
@@ -28,6 +30,7 @@ app.use(session(sess));
 app.engine('handlebars', hbs.engine);
 app.set('view engine', 'handlebars');
 
+app.use(formidable());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, 'public')));
