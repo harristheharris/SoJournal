@@ -3,6 +3,7 @@ const { Trip, Event } = require('../../models')
 const withAuth = require('../../utils/auth')
 
 router.post('/', withAuth, async (req, res ) => {
+    console.log(req.fields)
     try{
         const newEvent = await Event.create({
             ...req.fields,
