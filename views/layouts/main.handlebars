@@ -17,7 +17,7 @@
         <nav class="main-nav">
             {{#if logged_in}}
             <a href="/profile">PROFILE</a>
-            <button id="logout" class="btn btn-text">LOGOUT</button>
+            <button id="logout" class="btn btn-text" data-action="/api/users/logout" data-method="POST">LOGOUT</button>
             {{else}}
             <a href="/login">LOGIN</a>
             {{/if}}

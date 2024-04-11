@@ -7,7 +7,7 @@ router.post('/', withAuth, async (req, res ) => {
         const newEvent = await Event.create({
             ...req.fields,
         });
-        res.status(200).json(newEvent)
+        res.status(200).json(newEvent);
     } catch (err) {
         res.status(400).json(err);
     }

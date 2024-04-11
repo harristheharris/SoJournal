@@ -1,7 +1,7 @@
 $(() => {
     $('form').on('submit', async (event) => {
         event.preventDefault();
-        
+
         const form = event.currentTarget;
         const url = new URL(form.action);
         const formData = new FormData(form);
@@ -34,7 +34,6 @@ $(() => {
             document.location.reload();
         } else {
             alert(response.statusText);
-        }
-        
+        }  
     })
 })

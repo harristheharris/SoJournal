@@ -1,45 +1,78 @@
-const loginFormHandler = async (event) => {
-    event.preventDefault();
+$(() => {
+    $('#login').on('submit', async (event) => {
+        event.preventDefault();
+        
+        const form = event.currentTarget;
+        const url = new URL(form.action);
+        const formData = new FormData(form);
+        const extraData = $(event.currentTarget).data();
 
-    const username = document.querySelector('#username-login').value.trim();
-    const password = document.querySelector('#password-login').value.trim();
+        for (let data in extraData) {
+            formData.append(data, extraData[data]);
+        }
 
-    if (username && password) {
-        const response = await fetch('api/users/login', {
-            method: 'POST',
-            body: JSON.stringify({ username, password }),
-            headers: { 'Content-Type': 'application/json' },
-        });
+        const searchParams = new URLSearchParams(formData);
+
+        const fetchOptions = {
+            method: form.method,
+        };
+
+        if (form.method.toLowerCase() === 'post') {
+            if (form.enctype === 'multipart/form-data') {
+                fetchOptions.body = formData;
+            } else {
+                fetchOptions.body = searchParams;
+            }
+
+        } else {
+            url.search = searchParams;
+        }
+
+        response = await fetch(url, fetchOptions);
 
         if (response.ok) {
             document.location.replace('/profile');
         } else {
             alert(response.statusText);
         }
-    }
-};
+        
+    });
+    $('#signup').on('submit', async (event) => {
+        event.preventDefault();
+        
+        const form = event.currentTarget;
+        const url = new URL(form.action);
+        const formData = new FormData(form);
+        const extraData = $(event.currentTarget).data();
 
-const signupFormHandler = async (event) => {
-    event.preventDefault();
+        for (let data in extraData) {
+            formData.append(data, extraData[data]);
+        }
 
-    const username = document.querySelector('#username-signup').value.trim();
-    const email = document.querySelector('#email-signup').value.trim();
-    const password = document.querySelector('#password-signup').value.trim();
+        const searchParams = new URLSearchParams(formData);
 
-    if (username && email && password) {
-        const response = await fetch('api/users', {
-            method: 'POST',
-            body: JSON.stringify({ username, email, password }),
-            headers: { 'Content-Type': 'application/json' },
-        });
+        const fetchOptions = {
+            method: form.method,
+        };
+
+        if (form.method.toLowerCase() === 'post') {
+            if (form.enctype === 'multipart/form-data') {
+                fetchOptions.body = formData;
+            } else {
+                fetchOptions.body = searchParams;
+            }
+
+        } else {
+            url.search = searchParams;
+        }
+
+        response = await fetch(url, fetchOptions);
 
         if (response.ok) {
             document.location.replace('/profile');
         } else {
             alert(response.statusText);
         }
-    }
-};
-
-document.querySelector('.login-form').addEventListener('submit', loginFormHandler);
-document.querySelector('.signup-form').addEventListener('submit', signupFormHandler);
+        
+    })
+})
