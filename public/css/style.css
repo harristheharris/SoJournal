@@ -1,0 +1,92 @@
+html {
+  height: 100vh;
+  background-color: #FAF9F6;
+}
+
+body {
+  margin: 0;
+  height: 100vh;
+  box-sizing: border-box;
+  font-family: sans-serif;
+  padding: 16px;
+}
+
+header {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  gap: 20px;
+  align-items: center;
+}
+
+header h1 {
+  grid-column-start: 2;
+}
+
+.main-nav {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.main-content {
+  display: flex;
+  gap: 20px;
+  width: 100%;
+}
+
+.side-nav {
+  background-color: rgba(0,0,0,0.1);
+  padding: 8px;
+  border-radius: 4px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  width: 150px;
+}
+
+.nav-trip {
+  border: 1px solid black;
+  padding: 4px 8px;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: black;
+  text-decoration: none;
+  font-size: 12px;
+}
+
+.nav-trip:hover {
+  background-color: rgba(0,0,0,0.1);
+}
+
+main {
+  flex-grow: 1;
+}
+
+.trip-page {
+  padding: 0px 4px;
+}
+
+.trip-events-and-image {
+  display: flex;
+  gap: 20px;
+}
+
+.trip-events {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  width: 50%;
+}
+
+.event-card {
+  box-shadow: rgba(144, 153, 161, 0.2) 0px 8px 24px;
+  border-radius: 4px;
+  padding: 4px 12px;
+  background-color: white;
+}
+
+#create-trip-form div {
+  margin-top: 20px;
+}
