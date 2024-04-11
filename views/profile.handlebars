@@ -4,7 +4,7 @@
     </div>
 </div>
 
-<div>
+<div class="profile-content">
     {{#if trips.length}}
     <div class="trip-list">
         <h3>Saved Trips:</h3>
@@ -18,6 +18,8 @@
                 <button data-id="{{trip.id}}" class="btn btn-danger">DELETE</button>
             </div>
         </div>
+        {{else}}
+          <div>No trips yet!</div>
         {{/each}}
     </div>
     {{/if}}
