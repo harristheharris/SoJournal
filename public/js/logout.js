@@ -1,14 +1,17 @@
-const logout = async () => {
-    const respone = await fetch('/api/users/logout', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-    });
 
-    if (respone.ok) {
-        document.location.replace('/');
-    } else {
-        alert(respone.statusText);
-    }
-};
+$(() => {
+    $('#logout').on('click', async (event) => {
+        const url = event.target.getAttribute('data-action');
+        const method = event.target.getAttribute('data-method');
 
-document.querySelector('#logout')?.addEventListener('click', logout);
+        const response = await fetch(url, {
+            method: method,
+        });
+
+        if (response.ok) {
+            document.location.replace('/');
+        } else {
+            alert('Failed to delete');
+        }
+    })
+})
