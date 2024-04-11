@@ -18,23 +18,23 @@
           {{/each}}
 
           {{#if trip_belongs_to_user}}  
-            <div>
+            <div class="form-container">
               <h3>Create a new Event</h3>
               <form class="form event-form">
-                <div>
+                <div class="input-group">
                   <label for="event-name">event name:</label>
                   <input type="text" id="event-name" name="event-name" autocomplete="off"/>
                 </div>
-                <div>
+                <div class="input-group">
                   <label for="event-date">event date:</label>
                   <input type="text" id="event-date" name="event-date" autocomplete="off"/>
                 </div>
-                <div>
+                <div class="input-group">
                   <label for="event-description">Describe the event:</label>
                   <textarea id="event-description" name="event-description" style="resize: none;"></textarea>
                 </div>
-                <div>
-                  <button type="submit">Create</button>
+                <div class="button-container">
+                  <button type="submit" class="btn btn-primary">Create</button>
                 </div>
               </form>
             </div>
