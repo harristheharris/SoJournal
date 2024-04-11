@@ -1,14 +1,14 @@
 $(function () {
-    $("#trip-start-date").datepicker();
-    $("#trip-end-date").datepicker();
-
+    $("#trip-date-start").datepicker();
+    $("#trip-date-end").datepicker();
+    
     $('.trip-form').on('submit', async (e) => {
         e.preventDefault();
 
         const data = {
             name: $('#trip-name').val(),
-            date_start: $('#trip-start-date').val(),
-            date_end: $('#trip-end-date').val(),
+            date_start: $('#trip-date-start').val(),
+            date_end: $('#trip-date-end').val(),
         }
 
         const response = await fetch('/api/trips', {
@@ -42,22 +42,3 @@ $(function () {
     })
 
 });
-
-
-// const delTripButtonHandler = async (event) => {
-//     if (event.target.hasAttribute('data-id')) {
-//         const id = event.target.getAttribute('data-id');
-
-//         const response = await fetch(`api/trips/${id}`, {
-//             method: 'DELETE',
-//         });
-
-//         if (response.ok) {
-//             document.location.replace('/profile');
-//         } else {
-//             alert('Failed to delete Trip');
-//         }
-//     }
-// }
-
-// document.querySelector('.trip-list').addEventListener('click', delTripButtonHandler);

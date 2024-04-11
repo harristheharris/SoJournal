@@ -5,26 +5,6 @@
 </div>
 
 <div>
-    <div>
-        <h3>Create a new Trip</h3>
-        <form class="form trip-form">
-            <div>
-                <label for="trip-name">trip name:</label>
-                <input type="text" id="trip-name" name="trip-name" />
-            </div>
-            <div>
-                <label for="trip-start_date">trip start date:</label>
-                <input type="text" id="trip-start-date" name="trip-start-date" />
-            </div>
-            <div>
-                <label for="trip-endDate">trip end date:</label>
-                <input type="text" id="trip-end-date" name="trip-end-date" />
-            </div>
-            <div>
-                <button type="submit">Create</button>
-            </div>
-        </form>
-    </div>
     {{#if trips.length}}
     <div class="trip-list">
         <h3>Saved Trips:</h3>
@@ -41,6 +21,27 @@
         {{/each}}
     </div>
     {{/if}}
+    <div>
+        <h3>Create a new Trip</h3>
+        <form class="form trip-form">
+            <div>
+                <label for="trip-name">trip name:</label>
+                <input type="text" id="trip-name" name="trip-name" autocomplete="off"/>
+            </div>
+            <div>
+                <label for="trip-date-start">trip start date:</label>
+                <input type="text" id="trip-date-start" name="trip-date-start" autocomplete="off" />
+            </div>
+            <div>
+                <label for="trip-date-end">trip end date:</label>
+                <input type="text" id="trip-date-end" name="trip-date-end" autocomplete="off" />
+            </div>
+            <div>
+                <button type="submit">Create</button>
+            </div>
+        </form>
+    </div>
+    
 </div>
 
-<script src="./js/profile.js"></script>
+<script src="/js/profile.js"></script>

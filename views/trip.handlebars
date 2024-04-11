@@ -1,22 +1,45 @@
 <div class="main-content">
   <main>
-    <section class="trip-page">
+    <section class="trip-page" data-id="{{id}}" data-date-start="{{date_start}}" data-date-end="{{date_end}}">
       <h2>{{name}} ({{date_start}} - {{date_end}})</h2>
-    
+
       <div class="trip-events-and-image">
-        <div class="trip-events">
+        <div class="trip-events event-list">
           {{#each events as |event|}}
-            <div class="event-card">
-              <h3>{{event.name}} - {{event.date}}</h3>
-              {{!-- <p>{{event.description}}</p> --}}
-            </div>
+          <div class="event-card">
+            <h3>{{event.name}} - {{event.date}}</h3>
+            <p>{{event.description}}</p>
+            <button data-id="{{event.id}}">DELETE</button>
+          </div>
           {{else}}
-            <div>This trip has no events yet</div>
+          <div>This trip has no events yet</div>
           {{/each}}
+          <div>
+            <h3>Create a new Event</h3>
+            <form class="form event-form">
+              <div>
+                <label for="event-name">event name:</label>
+                <input type="text" id="event-name" name="event-name" autocomplete="off"/>
+              </div>
+              <div>
+                <label for="event-date">event date:</label>
+                <input type="text" id="event-date" name="event-date" autocomplete="off"/>
+              </div>
+              <div>
+                <label for="event-description">Describe the event:</label>
+                <textarea id="event-description" name="event-description" style="resize: none;"></textarea>
+              </div>
+              <div>
+                <button type="submit">Create</button>
+              </div>
+            </form>
+          </div>
         </div>
-    
+
         <img src="https://www.state.gov/wp-content/uploads/2020/11/shutterstock_186964970-scaled.jpg" width="600">
       </div>
     </section>
   </main>
 </div>
+
+<script src="/js/trip.js"></script>

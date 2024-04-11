@@ -1,40 +1,46 @@
-const newEventFormHandler = async (event) => {
-    event.preventDefault();
+$(function () {
+    $("#event-date").datepicker({
+        minDate: $(".trip-page").data('date-start'),
+        maxDate: $(".trip-page").data('date-end')
+    });
 
-    const name = document.querySelector('#event-name').value.trim();
-    const date = document.querySelector('#event-date').value.trim();
-    const desc = document.querySelector('#event-desc').value.trim();
-
-    if (name && startDate && endDate) {
-        const response = await fetch('api/events', {
+    $('.event-form').on('submit', async (e) => {
+        e.preventDefault();
+        const data = {
+            name: $('#event-name').val(),
+            date: $('#event-date').val(),
+            description: $('#event-description').val(),
+            trip_id: $('.trip-page').data('id'),
+        }
+        console.log(data);
+        const response = await fetch('/api/events', {
             method: 'POST',
-            body: JSON.stringify({ name, date, desc }),
+            body: JSON.stringify(data),
             headers: { 'Content-Type': 'application/json' },
         });
 
         if (response.ok) {
-            document.location.replace('/profile');
+            const body = await response.json();
+
+            document.location.replace(`/trip/${body.trip_id}`);
         } else {
-            alert('Failed to add Event');
+            alert(response.statusText);
         }
-    }
-}
+    })
+    $('.event-list').on('click', async (e) => {
+        if (e.target.hasAttribute('data-id')) {
+            const id = e.target.getAttribute('data-id');
 
-const delEventButtonHandler = async (event) => {
-    if (event.target.hasAttribute('data-id')) {
-        const id = event.target.getAttribute('data-id');
+            const response = await fetch(`/api/events/${id}`, {
+                method: 'DELETE',
+            });
 
-        const response = await fetch(`api/events/${id}`, {
-            method: 'DELETE',
-        });
-
-        if (response.ok) {
-            document.location.replace('/profile');
-        } else {
-            alert('Failed to delete Event');
+            if (response.ok) {
+                document.location.reload();
+            } else {
+                alert('Failed to delete Trip');
+            }
         }
-    }
-}
+    })
 
-document.querySelector('.new-event-form').addEventListener('submit', newEventFormHandler);
-document.querySelector('.event-list').addEventListener('click', delEventButtonHandler);
+});

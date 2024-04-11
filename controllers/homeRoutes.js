@@ -1,4 +1,5 @@
 const router = require('express').Router();
+const { Sequelize } = require('sequelize');
 const { Event, Trip, User } = require('../models');
 const withAuth = require('../utils/auth')
 
@@ -25,16 +26,14 @@ router.get('/', async (req, res) => {
     }
 })
 
-//profile route???
 router.get('/profile', withAuth, async (req, res) => {
     try {
         const userData = await User.findByPk(req.session.user_id, {
             attributes: { exclude: ['password'] },
             include: [{ model: Trip }]
         });
-
         const user = userData.get({ plain: true });
-
+        
         res.render('profile', {
             ...user,
             logged_in: true,
@@ -49,13 +48,14 @@ router.get('/profile', withAuth, async (req, res) => {
 router.get('/trip/:id', async (req, res) => {
     try {
         const tripData = await Trip.findByPk(req.params.id, {
-            include: [{
-                model: User, Event,
-                atrributes: ['name'],
-            }
+            include: [
+                {
+                    model: Event,
+                    atrributes: ['name'],
+                },
+
             ],
         });
-
         const trip = tripData.get({ plain: true });
 
         res.render('trip', {
@@ -69,7 +69,6 @@ router.get('/trip/:id', async (req, res) => {
     }
 })
 
-//login route???
 router.get('/login', (req, res) => {
 
     if (req.session.logged_in) {
