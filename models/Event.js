@@ -18,9 +18,6 @@ Event.init(
         date: {
             type: DataTypes.STRING,
             allowNull: false,
-            //TODO: Figure this out
-            // validate: {    
-            // }
         },
         description: {
             type: DataTypes.STRING,
