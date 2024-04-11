@@ -3,11 +3,9 @@ const { Trip, Event } = require('../../models')
 const withAuth = require('../../utils/auth')
 
 router.post('/', withAuth, async (req, res ) => {
-    console.log(JSON.stringify(req.fields));
-    console.log(JSON.stringify(req.files));
     try{
         const newEvent = await Event.create({
-            ...req.body,
+            ...req.fields,
         });
         res.status(200).json(newEvent)
     } catch (err) {
