@@ -97,6 +97,16 @@ main {
   width: 50%;
 }
 
+.trip-events-and-image img {
+  display: none;
+}
+
+@media only screen and (min-width: 768px) {
+  .trip-events-and-image img {
+    display: inline;
+  }
+}
+
 .event-card {
   box-shadow: rgba(144, 153, 161, 0.2) 0px 8px 24px;
   border-radius: 4px;
@@ -118,13 +128,25 @@ main {
   }
 }
 
-.login-page .form-container {
-  margin-top: 20px;
+.login-page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 40px;
 }
 
+@media only screen and (min-width: 768px) {
+  .login-page {
+    flex-direction: row;
+    align-items: start;
+    justify-content: center;
+  }
+}
+
+
 .form-container {
-  margin-top: 20px;
   min-width: 300px;
+  max-width: 600px;
   background-color: white;
   padding: 8px 20px;
   border-radius: 4px;
