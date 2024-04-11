@@ -1,9 +1,12 @@
+<div>
+    <h2>Here are some people's stories:</h2>
+</div>
 {{#each trips as |trip|}}
 <div>
     <div>
-        <h2>
+        <h3>
             <a href="/trip/{{trip.id}}">{{trip.name}} ({{trip.date_start}})</a>
-        </h2>
+        </h3>
     </div>
 </div>
 {{/each}}
