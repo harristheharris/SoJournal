@@ -1,37 +1,49 @@
-<div>
+<div class="grid align-forms m-5 align-forms">
     <div>
         <h2>Login</h2>
-        <form class="login-form">
-            <div>
-                <label for="name-login">username:</label>
-                <input type="text" id="username-login" />
+        <form class="login-form field ">
+
+            <div class="login-inner-div field">
+                <label for="name-login label">username:</label>
+                <div class="control">
+                    <input class="input is-small" type="text" id="username-login" />
+                </div>
             </div>
-            <div>
+            
+            <div class="login-inner-div field">
                 <label for="password-login">password:</label>
-                <input type="password" id="password-login" />
+                <div class="control">
+                    <input class="input is-small" type="password" id="password-login" />
+                </div>
             </div>
             <div>
-                <button type="submit">login</button>
+                <button class="button is-dark " type="submit">login</button>
             </div>
         </form>
     </div>
     <div>
         <h2>Signup</h2>
-        <form class="signup-form">
-            <div>
+        <form class="signup-form login-form field">
+            <div class="login-inner-div field">
                 <label for="name-signup">username:</label>
-                <input type="text" id="username-signup" />
+                <div class="control">
+                    <input class="input is-small" type="text" id="username-signup" />
+                </div>
             </div>
-            <div>
+            <div class="login-inner-div field">
                 <label for="email-signup">email:</label>
-                <input type="text" id="email-signup" />
+                <div class="control">
+                    <input class="input is-small" type="text" id="email-signup" />
+                </div>
             </div>
-            <div>
+            <div class="login-inner-div field">
                 <label for="password-signup">password:</label>
-                <input type="password" id="password-signup" />
+                <div class="control">
+                    <input class="input is-small" type="password" id="password-signup" />
+                </div>
             </div>
             <div>
-                <button type="submit">signup</button>
+                <button class="button is-dark" type="submit">signup</button>
             </div>
         </form>
     </div>

@@ -1,17 +1,20 @@
 [
     {
-        "user_name": "Stephen",
+        "username": "Stephen",
         "password": "password1",
-        "public": true
+        "public": true,
+        "email": "email1"
     },
     {
-        "user_name": "Anthony",
+        "username": "Anthony",
         "password": "HelloWorld",
-        "public": true
+        "public": true,
+        "email": "email2"
     },
     {
-        "user_name": "Aaron",
+        "username": "Aaron",
         "password": "OpenSesame",
-        "public": false
+        "public": false,
+        "email": "email3"
     }
 ]

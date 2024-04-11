@@ -7,11 +7,16 @@
 <div>
     <div>
         <h3>Create a new Trip</h3>
-        <form class="form trip-form">
-            <div>
-                <label for="trip-name">trip name:</label>
-                <input type="text" id="trip-name" name="trip-name" />
-            </div>
+
+        <form class="trip-form form field">
+
+        <div class="section field py-2 px-1">
+          <label for="trip-name">trip name:</label>
+          <div class="control column is-2 ">
+            <input class="input is-small" type="text" id="trip-name" name="trip-name" />
+          </div>
+        </div>
+
             <div>
                 <label for="trip-start_date">trip start date:</label>
                 <input type="text" id="trip-start-date" name="trip-start-date" />
