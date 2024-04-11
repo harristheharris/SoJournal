@@ -9,7 +9,7 @@
           <div class="event-card">
             <h3>{{event.name}} - {{event.date}}</h3>
             <p>{{event.description}}</p>
-            {{#if is_owner}}
+            {{#if ../is_owner}}
             <button class="delete-button" data-action="/api/events/{{event.id}}" data-method="DELETE">DELETE</button>
             {{/if}}
           </div>
